@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <!--devise の機能を使ってログインしているか、ログインしていないかを判断し、どちらかによってブラウザに表示する内容を変更することができる-->
+    <header>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+      <!--ログイン済みならif〜elseの間-->
+    <% else %>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+    <% end %>
+    <!--ログアウト状態ならelse〜endの間-->
+  </header>
     <%= yield %>
   </body>
 </html>
