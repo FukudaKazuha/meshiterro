@@ -10,10 +10,11 @@ class PostImagesController < ApplicationController
     @post_image.user_id = current_user.id
     @post_image.save
     redirect_to post_images_path
-    # リダイレクト先はinde投稿一覧
+    # リダイレクト先はindex投稿一覧
   end
 
   def index
+    @post_images = PostImage.all
   end
 
   def show
