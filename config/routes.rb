@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'users/show'
   # get 'users/edit'
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
   # get 'post_images/new'
   # get 'post_images/index'
   # get 'post_images/show'
