@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get 'post_images/show'
   resources :post_images, only: [:new, :create, :index, :show, :destroy]do
   # 画像投稿post_imagesには、「新規投稿」「一覧」「詳細機能」「削除」のみ
+    resource :favorite, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
     # コメントは、投稿画像に対してコメントされるからpost_commentsは、post_imagesに結びつく（親子関係になる）
   end
