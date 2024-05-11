@@ -1,6 +1,8 @@
 class PostImage < ApplicationRecord
   has_one_attached :image
   belongs_to :user
+  has_many :post_comments, dependent: :destroy
+  
   # ActiveStorageで画像投稿されてない時に出るエラーの回避
   def get_image
     unless image.attached?
