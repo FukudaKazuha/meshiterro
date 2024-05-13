@@ -3,6 +3,10 @@ class PostImage < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+ 
+  #バリデーション 
+  validates :shop_name, presence: true
+  validates :image, presence: true
   
   # ActiveStorageで画像投稿されてない時に出るエラーの回避
   def get_image
