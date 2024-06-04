@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # devise_for :adminsこれを削除
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: 'admin/sessions'
+  }
   # get 'users/show'
   # get 'users/edit'
   resources :users, only: [:show, :edit, :update]
